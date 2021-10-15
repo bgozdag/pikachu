@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% block baristasactive %}
+active
+{% endblock baristasactive %}
+
+{% block title %}
+Pikachu - Baristas
+{% endblock title %}
+
+{% block content %}
+{% if baristas_list %}
+<div class="row row-cols-2 row-cols-md-6">
+    {% for barista in baristas_list %}
+    <div class="col mb-8">
+        <div class="card">
+            <img src="{{ barista.profile_pic.url }}" class="card-img-top" alt="..." height="130" width="50">
+            <div class="card-body">
+                <h5 class="card-title">{{ barista.name }}</h5>
+                <p class="card-text">{{ barista.mail }}</p>
+                <a href="#" class="btn btn-dark">Update user</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+    <p>No Baristas are available.</p>
+{% endif %}
+<div style="padding-left: 50%">
+    <a href="{% url 'createbarista' %}" type="button" class="btn btn-dark btn-lg">Create new</a>
+</div>
+{% endblock content %}

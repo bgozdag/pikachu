@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block pikachuactive %}
+active
+{% endblock pikachuactive %}
+
+{% block title %}
+Pikachu - Create user
+{% endblock title %}
+
+{% block content %}
+<div style="padding-left: 2%; padding-top: 2%; padding-right: 2%">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Profile picture</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="profile_picture">
+            <br>
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="name">
+            <br>
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="mail">
+            <br>
+            <button type="submit" class="btn btn-primary btn-dark">Create</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
